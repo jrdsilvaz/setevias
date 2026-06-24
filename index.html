@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setevias | Consultoria em Infraestrutura Linux, Cloud & DevOps</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --text-color: #e2e8f0;
+            --accent-color: #38bdf8;
+            --accent-hover: #0ea5e9;
+            --card-bg: #1e293b;
+            --border-color: #334155;
+            --muted-text: #94a3b8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            background-color: rgba(15, 23, 42, 0.9);
+            border-bottom: 1px solid var(--border-color);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            text-transform: lowercase;
+        }
+
+        .logo span {
+            color: #fff;
+            font-weight: 300;
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin-left: 2rem;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        .btn-contact {
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+            padding: 0.5rem 1.2rem;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .btn-contact:hover {
+            background-color: var(--accent-hover);
+            color: #fff;
+        }
+
+        .hero {
+            padding: 8rem 0 5rem 0;
+            text-align: center;
+            background: radial-gradient(circle at top, #1e293b 0%, #0f172a 70%);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: #fff;
+        }
+
+        .hero h1 span {
+            color: var(--accent-color);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--muted-text);
+            max-width: 800px;
+            margin: 0 auto 2.5rem auto;
+        }
+
+        .services {
+            padding: 5rem 0;
+            background-color: #0b0f19;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title p {
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.85rem;
+        }
+
+        .grid-services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1xl));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 2.5rem;
+            border-radius: 8px;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+        }
+
+        .service-card h3 {
+            font-size: 1.4rem;
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: var(--muted-text);
+            font-size: 0.95rem;
+        }
+
+        .about {
+            padding: 5rem 0;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: var(--muted-text);
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .tech-tag {
+            background-color: rgba(56, 189, 248, 0.1);
+            color: var(--accent-color);
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+        }
+
+        .experience-summary {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 2rem;
+            border-radius: 8px;
+        }
+
+        .exp-item {
+            border-left: 2px solid var(--accent-color);
+            padding-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .exp-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .exp-item h4 {
+            color: #fff;
+        }
+
+        .exp-item span {
+            font-size: 0.85rem;
+            color: var(--accent-color);
+        }
+
+        .contact {
+            padding: 5rem 0;
+            background-color: #0b0f19;
+            text-align: center;
+        }
+
+        .contact-box {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 3rem;
+            border-radius: 8px;
+        }
+
+        .contact-box h3 {
+            font-size: 1.8rem;
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+
+        .contact-box p {
+            color: var(--muted-text);
+            margin-bottom: 2rem;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s;
+        }
+
+        .contact-link:hover {
+            color: var(--accent-color);
+        }
+
+        footer {
+            background-color: var(--bg-color);
+            border-top: 1px solid var(--border-color);
+            padding: 2rem 0;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--muted-text);
+        }
+
+        @media (max-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            nav {
+                display: none;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-container">
+            <div class="logo">setevias<span>.com</span></div>
+            <nav>
+                <a href="#servicos">Serviços</a>
+                <a href="#sobre">Quem Somos</a>
+                <a href="#contato" class="btn-contact">Fale Conosco</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Disponibilidade, Automação e <span>Segurança Operacional</span> para sua Infraestrutura</h1>
+            <p>Consultoria especializada em Administração Linux, Multi-Cloud, Infraestrutura como Código (IaC) e Observabilidade. Ambientes críticos resilientes e operações escaláveis de ponta a ponta.</p>
+            <a href="#contato" class="btn-contact" style="padding: 1rem 2rem; font-size: 1.1rem; text-decoration: none;">Solicitar Diagnóstico Gratuito</a>
+        </div>
+    </section>
+
+    <section id="servicos" class="services">
+        <div class="container">
+            <div class="section-title">
+                <p>O que fazemos</p>
+                <h2>Nossas Soluções de Consultoria</h2>
+            </div>
+            <div class="grid-services">
+                <div class="service-card">
+                    <h3>Automação & Infraestrutura como Código (IaC)</h3>
+                    <p>Elimine gargalos manuais e garanta governança. Desbravamos o provisionamento moderno e sustentação de ambientes ágeis utilizando Terraform, Ansible, Docker, Swarm, Vagrant e Puppet.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Arquitetura Multi-Cloud</h3>
+                    <p>Desenho, migração e otimização de custos em nuvens globais. Expertise consolidada nas principais plataformas de mercado: AWS, Microsoft Azure, Google Cloud Platform (GCP) e Oracle Cloud Infrastructure (OCI).</p>
+                </div>
+                <div class="service-card">
+                    <h3>Observabilidade & Monitoramento</h3>
+                    <p>Antecipe incidentes e reduza drasticamente o MTTR. Implementação avançada de painéis e alertas inteligentes através de ecossistemas robustos como Zabbix e Grafana.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Sustentação de Ambientes Críticos 24x7</h3>
+                    <p>Administração de Sistemas Linux (Red Hat, CentOS, Ubuntu, Debian) e Middlewares (WebLogic, Tomcat, Apache) com foco em alta disponibilidade, gestão rigorosa de mudanças (GMUD) e análise profunda de causa raiz (RCA).</p>
+                </div>
+                <div class="service-card">
+                    <h3>Hardening & Defesa Cibernética</h3>
+                    <p>Blindagem de ambientes operacionais alinhada à conformidade e LGPD. Aplicação de técnicas avançadas de Blue Team e segurança operacional para proteger seus dados contra ameaças.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="sobre" class="about">
+        <div class="container">
+            <div class="section-title">
+                <p>Especialista Responsável</p>
+                <h2>Por trás da setevias</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>José Roberto da Silva</h3>
+                    <p>Com cerca de 10 anos de sólida bagagem em ambientes corporativos altamente críticos, lidero a <strong>setevias</strong> trazendo a vivência prática acumulada em grandes players do mercado tecnológico, como IPNET, TIVIT (Projeto Petrobras) e Capgemini.</p>
+                    <p>Nossa abordagem une a agilidade do DevOps com o rigor técnico da Defesa Cibernética, assegurando que cada linha de código de infraestrutura ou automação nasça protegida e eficiente.</p>
+                    
+                    <div class="tech-tags">
+                        <span class="tech-tag">Linux Senior</span>
+                        <span class="tech-tag">AWS & Azure</span>
+                        <span class="tech-tag">GCP & OCI</span>
+                        <span class="tech-tag">Terraform</span>
+                        <span class="tech-tag">Ansible</span>
+                        <span class="tech-tag">Docker Swarm</span>
+                        <span class="tech-tag">Zabbix & Grafana</span>
+                        <span class="tech-tag">CyberSecurity</span>
+                    </div>
+                </div>
+                
+                <div class="experience-summary">
+                    <h3 style="color: #fff; margin-bottom: 1.5rem; font-size: 1.3rem;">Histórico de Impacto</h3>
+                    <div class="exp-item">
+                        <h4>IPNET | Analista de Infraestrutura III</h4>
+                        <span>Sustentação, Cloud e Otimização de Processos</span>
+                    </div>
+                    <div class="exp-item">
+                        <h4>TIVIT (Projeto Petrobras) | Analista de Infraestrutura</h4>
+                        <span>Provisionamento de IaC e Middlewares Corporativos</span>
+                    </div>
+                    <div class="exp-item">
+                        <h4>Capgemini | Analista de Infraestrutura</h4>
+                        <span>Evolução de Sistemas e Redução de Riscos Operacionais</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contato" class="contact">
+        <div class="container">
+            <div class="contact-box">
+                <h3>Vamos transformar sua infraestrutura?</h3>
+                <p>Fale diretamente conosco e agende uma sessão estratégica para identificar oportunidades de automação e segurança no seu negócio.</p>
+                <div class="contact-links">
+                    <a href="mailto:jrdsilvaz@gmail.com" class="contact-link">📩 jrdsilvaz@gmail.com</a>
+                    <a href="https://linkedin.com/in/jrdsilvaz" target="_blank" class="contact-link">🔗 LinkedIn</a>
+                    <a href="tel:+5511965819745" class="contact-link">📱 +55 11 96581-9745</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 setevias Consultoria em TI. Todos os direitos reservados.</p>
+            <p style="margin-top: 0.5rem; font-size: 0.75rem; color: var(--muted-text);">SETEVIAS - CNPJ: 64.839.908/001-76 | Especialista Resp.: José Roberto da Silva</p>
+        </div>
+    </footer>
+
+</body>
+</html>
