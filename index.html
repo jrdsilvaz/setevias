@@ -4,15 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>setevias | Consultoria em Infraestrutura Linux, Cloud & DevOps</title>
+    
+    <!-- Favicon / Ícone que aparece na aba do navegador -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
+    
     <style>
         :root {
-            --bg-color: #0f172a;
-            --text-color: #e2e8f0;
-            --accent-color: #38bdf8;
-            --accent-hover: #0ea5e9;
-            --card-bg: #1e293b;
-            --border-color: #334155;
-            --muted-text: #94a3b8;
+            /* Identidade Visual baseada na Força dos Orixás */
+            --bg-color: #0d0f14;         /* Preto profundo (Omolu) */
+            --text-color: #e2e8f0;       /* Branco acinzentado (Omolu) */
+            --accent-ogum: #1d4ed8;     /* Azul de Ogum (Lei, Ordem, Proteção) */
+            --accent-ogum-light: #3b82f6;
+            --accent-red: #dc2626;       /* Vermelho de Ogum (Ação, Execução) */
+            --accent-omolu: #d97706;     /* Ouro Velho / Cor de Palha (Cura, Xaxará) */
+            --card-bg: #161b22;          /* Fundo dos blocos */
+            --border-color: #30363d;     /* Bordas sutis */
+            --muted-text: #8b949e;
         }
 
         * {
@@ -35,8 +42,8 @@
         }
 
         header {
-            background-color: rgba(15, 23, 42, 0.9);
-            border-bottom: 1px solid var(--border-color);
+            background-color: rgba(13, 15, 20, 0.95);
+            border-bottom: 2px solid var(--border-color);
             position: fixed;
             width: 100%;
             top: 0;
@@ -48,19 +55,32 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 0;
+            padding: 0.8rem 0;
         }
 
-        .logo {
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            text-decoration: none;
+        }
+
+        .logo-svg {
+            width: 40px;
+            height: 40px;
+        }
+
+        .logo-text {
             font-size: 1.8rem;
-            font-weight: bold;
-            color: var(--accent-color);
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: #fff;
             text-transform: lowercase;
         }
 
-        .logo span {
-            color: #fff;
-            font-weight: 300;
+        .logo-text span {
+            color: var(--accent-omolu);
+            font-weight: 400;
         }
 
         nav a {
@@ -69,75 +89,89 @@
             margin-left: 2rem;
             transition: color 0.3s;
             font-size: 0.95rem;
+            font-weight: 500;
         }
 
         nav a:hover {
-            color: var(--accent-color);
+            color: var(--accent-ogum-light);
         }
 
         .btn-contact {
-            background-color: var(--accent-color);
-            color: var(--bg-color);
-            padding: 0.5rem 1.2rem;
+            background: linear-gradient(135deg, var(--accent-ogum) 0%, var(--accent-red) 100%);
+            color: #fff;
+            padding: 0.6rem 1.4rem;
             border-radius: 4px;
             font-weight: bold;
+            box-shadow: 0 4px 15px rgba(29, 78, 216, 0.3);
+            border: none;
+            transition: transform 0.2s, box-shadow 0.2s;
         }
 
         .btn-contact:hover {
-            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(220, 38, 38, 0.4);
             color: #fff;
         }
 
         .hero {
-            padding: 8rem 0 5rem 0;
+            padding: 10rem 0 6rem 0;
             text-align: center;
-            background: radial-gradient(circle at top, #1e293b 0%, #0f172a 70%);
+            background: radial-gradient(circle at top, #1e2530 0%, #0d0f14 80%);
+            border-bottom: 1px solid var(--border-color);
         }
 
         .hero h1 {
-            font-size: 3rem;
-            line-height: 1.2;
+            font-size: 3.2rem;
+            line-height: 1.15;
             margin-bottom: 1.5rem;
             color: #fff;
+            font-weight: 800;
         }
 
-        .hero h1 span {
-            color: var(--accent-color);
+        .hero h1 span.ogum {
+            color: var(--accent-ogum-light);
+            text-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+        }
+
+        .hero h1 span.omolu {
+            color: var(--accent-omolu);
+            text-shadow: 0 0 15px rgba(217, 119, 6, 0.3);
         }
 
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             color: var(--muted-text);
-            max-width: 800px;
-            margin: 0 auto 2.5rem auto;
+            max-width: 850px;
+            margin: 0 auto 3rem auto;
         }
 
         .services {
-            padding: 5rem 0;
-            background-color: #0b0f19;
+            padding: 6rem 0;
+            background-color: #090b0e;
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
         }
 
         .section-title h2 {
-            font-size: 2.2rem;
+            font-size: 2.4rem;
             color: #fff;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.6rem;
         }
 
         .section-title p {
-            color: var(--accent-color);
+            color: var(--accent-red);
             text-transform: uppercase;
             letter-spacing: 2px;
             font-size: 0.85rem;
+            font-weight: bold;
         }
 
         .grid-services {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1xl));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2rem;
         }
 
@@ -146,18 +180,37 @@
             border: 1px solid var(--border-color);
             padding: 2.5rem;
             border-radius: 8px;
+            position: relative;
+            overflow: hidden;
             transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background-color: var(--accent-ogum);
+        }
+
+        .service-card.transform-card::before {
+            background-color: var(--accent-omolu);
         }
 
         .service-card:hover {
             transform: translateY(-5px);
-            border-color: var(--accent-color);
+            border-color: var(--muted-text);
         }
 
         .service-card h3 {
-            font-size: 1.4rem;
+            font-size: 1.35rem;
             color: #fff;
             margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         .service-card p {
@@ -166,25 +219,27 @@
         }
 
         .about {
-            padding: 5rem 0;
+            padding: 6rem 0;
+            border-top: 1px solid var(--border-color);
         }
 
         .about-content {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1.2fr 0.8fr;
             gap: 4rem;
             align-items: center;
         }
 
         .about-text h3 {
-            font-size: 1.8rem;
+            font-size: 2rem;
             color: #fff;
-            margin-bottom: 1rem;
+            margin-bottom: 1.2rem;
         }
 
         .about-text p {
             margin-bottom: 1.5rem;
             color: var(--muted-text);
+            font-size: 1.05rem;
         }
 
         .tech-tags {
@@ -195,25 +250,36 @@
         }
 
         .tech-tag {
-            background-color: rgba(56, 189, 248, 0.1);
-            color: var(--accent-color);
-            padding: 0.3rem 0.8rem;
+            background-color: rgba(30, 41, 59, 0.5);
+            color: #fff;
+            padding: 0.4rem 0.9rem;
             border-radius: 4px;
             font-size: 0.85rem;
-            border: 1px solid rgba(56, 189, 248, 0.2);
+            border: 1px solid var(--border-color);
+        }
+
+        .tech-tag.ogum-tag {
+            border-color: var(--accent-ogum);
+            color: var(--accent-ogum-light);
+        }
+
+        .tech-tag.omolu-tag {
+            border-color: var(--accent-omolu);
+            color: var(--accent-omolu);
         }
 
         .experience-summary {
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
-            padding: 2rem;
+            padding: 2.5rem;
             border-radius: 8px;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.3);
         }
 
         .exp-item {
-            border-left: 2px solid var(--accent-color);
+            border-left: 2px solid var(--accent-red);
             padding-left: 1.5rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
         }
 
         .exp-item:last-child {
@@ -222,37 +288,42 @@
 
         .exp-item h4 {
             color: #fff;
+            font-size: 1.1rem;
+            font-weight: 600;
         }
 
         .exp-item span {
             font-size: 0.85rem;
-            color: var(--accent-color);
+            color: var(--accent-omolu);
+            font-weight: bold;
         }
 
         .contact {
-            padding: 5rem 0;
-            background-color: #0b0f19;
+            padding: 6rem 0;
+            background-color: #090b0e;
             text-align: center;
         }
 
         .contact-box {
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto;
-            background-color: var(--card-bg);
+            background: linear-gradient(145deg, #161b22 0%, #0d0f14 100%);
             border: 1px solid var(--border-color);
-            padding: 3rem;
-            border-radius: 8px;
+            padding: 4rem 3rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
         .contact-box h3 {
-            font-size: 1.8rem;
+            font-size: 2.2rem;
             color: #fff;
             margin-bottom: 1rem;
         }
 
         .contact-box p {
             color: var(--muted-text);
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
+            font-size: 1.1rem;
         }
 
         .contact-links {
@@ -268,18 +339,24 @@
             font-weight: bold;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
-            transition: color 0.3s;
+            gap: 0.6rem;
+            padding: 0.8rem 1.5rem;
+            border-radius: 6px;
+            background-color: rgba(255,255,255,0.03);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s;
         }
 
         .contact-link:hover {
-            color: var(--accent-color);
+            border-color: var(--accent-ogum-light);
+            background-color: rgba(59, 130, 246, 0.05);
+            transform: translateY(-2px);
         }
 
         footer {
             background-color: var(--bg-color);
-            border-top: 1px solid var(--border-color);
-            padding: 2rem 0;
+            border-top: 2px solid var(--border-color);
+            padding: 2.5rem 0;
             text-align: center;
             font-size: 0.85rem;
             color: var(--muted-text);
@@ -288,13 +365,13 @@
         @media (max-width: 768px) {
             .about-content {
                 grid-template-columns: 1fr;
-                gap: 2rem;
+                gap: 2.5rem;
             }
             nav {
                 display: none;
             }
             .hero h1 {
-                font-size: 2.2rem;
+                font-size: 2.3rem;
             }
         }
     </style>
@@ -303,10 +380,19 @@
 
     <header>
         <div class="container header-container">
-            <div class="logo">setevias<span>.com</span></div>
+            <a href="#" class="logo-container">
+                <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M50,15 L80,25 L80,55 C80,75 50,90 50,90 C50,90 20,75 20,55 L20,25 Z" fill="#161b22" stroke="#d97706" stroke-width="4"/>
+                    <line x1="50" y1="25" x2="50" y2="80" stroke="#fff" stroke-width="2" stroke-dasharray="4"/>
+                    <path d="M50,20 L54,32 L51,70 L49,70 L46,32 Z" fill="#3b82f6"/>
+                    <rect x="42" y="70" width="16" height="4" rx="1" fill="#dc2626"/>
+                    <rect x="47" y="74" width="6" height="10" rx="1" fill="#3b82f6"/>
+                </svg>
+                <div class="logo-text">setevias<span>.com</span></div>
+            </a>
             <nav>
-                <a href="#servicos">Serviços</a>
-                <a href="#sobre">Quem Somos</a>
+                <a href="#servicos">Soluções</a>
+                <a href="#sobre">Liderança</a>
                 <a href="#contato" class="btn-contact">Fale Conosco</a>
             </nav>
         </div>
@@ -314,38 +400,38 @@
 
     <section class="hero">
         <div class="container">
-            <h1>Disponibilidade, Automação e <span>Segurança Operacional</span> para sua Infraestrutura</h1>
-            <p>Consultoria especializada em Administração Linux, Multi-Cloud, Infraestrutura como Código (IaC) e Observabilidade. Ambientes críticos resilientes e operações escaláveis de ponta a ponta.</p>
-            <a href="#contato" class="btn-contact" style="padding: 1rem 2rem; font-size: 1.1rem; text-decoration: none;">Solicitar Diagnóstico Gratuito</a>
+            <h1>Caminhos Abertos, Infraestrutura Forte e <span class="omolu">Ambientes Protegidos</span></h1>
+            <p>Consultoria técnica especializada em Administração Linux Senior, Arquitetura Multi-Cloud, Automação Absoluta com IaC e Resiliência Operacional para Sistemas Críticos.</p>
+            <a href="#contato" class="btn-contact" style="padding: 1rem 2.5rem; font-size: 1.1rem; text-decoration: none;">Abrir Diagnóstico Estratégico</a>
         </div>
     </section>
 
     <section id="servicos" class="services">
         <div class="container">
             <div class="section-title">
-                <p>O que fazemos</p>
-                <h2>Nossas Soluções de Consultoria</h2>
+                <p>Diretrizes de Atuação</p>
+                <h2>Soluções de Alta Performance</h2>
             </div>
             <div class="grid-services">
                 <div class="service-card">
-                    <h3>Automação & Infraestrutura como Código (IaC)</h3>
-                    <p>Elimine gargalos manuais e garanta governança. Desbravamos o provisionamento moderno e sustentação de ambientes ágeis utilizando Terraform, Ansible, Docker, Swarm, Vagrant e Puppet.</p>
+                    <h3>⚔️ Automação & Caminhos Livres (IaC)</h3>
+                    <p>Corte tarefas manuais e repetitivas na raiz. Provisionamento veloz, padronizado e limpo utilizando ecossistemas robustos de mercado: Terraform, Ansible, Docker, Docker Swarm, Vagrant e Puppet.</p>
                 </div>
                 <div class="service-card">
-                    <h3>Arquitetura Multi-Cloud</h3>
-                    <p>Desenho, migração e otimização de custos em nuvens globais. Expertise consolidada nas principais plataformas de mercado: AWS, Microsoft Azure, Google Cloud Platform (GCP) e Oracle Cloud Infrastructure (OCI).</p>
+                    <h3>🌐 Arquitetura Multi-Cloud Escalonável</h3>
+                    <p>Governança técnica e estratégica entre fronteiras digitais. Engenharia, migração e otimização de infraestrutura em nuvens globais: AWS, Microsoft Azure, Google Cloud (GCP) e Oracle Cloud (OCI).</p>
+                </div>
+                <div class="service-card transform-card">
+                    <h3>🛡️ Hardening & Resiliência Operacional</h3>
+                    <p>Blindagem cirúrgica alinhada às melhores práticas de CyberSecurity (Blue Team). Auditoria interna, eliminação de vulnerabilidades em sistemas Linux e plena conformidade com a LGPD.</p>
                 </div>
                 <div class="service-card">
-                    <h3>Observabilidade & Monitoramento</h3>
-                    <p>Antecipe incidentes e reduza drasticamente o MTTR. Implementação avançada de painéis e alertas inteligentes através de ecossistemas robustos como Zabbix e Grafana.</p>
+                    <h3>🔥 Sustentação Crítica 24x7 & Runbooks</h3>
+                    <p>Gerenciamento sênior de Sistemas Operacionais Linux (Red Hat, CentOS, Ubuntu, Debian) e Middlewares de alta demanda (WebLogic, Tomcat, Apache). Análise rigorosa de Causa Raiz (RCA) e Gestão de Mudanças.</p>
                 </div>
-                <div class="service-card">
-                    <h3>Sustentação de Ambientes Críticos 24x7</h3>
-                    <p>Administração de Sistemas Linux (Red Hat, CentOS, Ubuntu, Debian) e Middlewares (WebLogic, Tomcat, Apache) com foco em alta disponibilidade, gestão rigorosa de mudanças (GMUD) e análise profunda de causa raiz (RCA).</p>
-                </div>
-                <div class="service-card">
-                    <h3>Hardening & Defesa Cibernética</h3>
-                    <p>Blindagem de ambientes operacionais alinhada à conformidade e LGPD. Aplicação de técnicas avançadas de Blue Team e segurança operacional para proteger seus dados contra ameaças.</p>
+                <div class="service-card transform-card">
+                    <h3>👁️ Observabilidade Avançada</h3>
+                    <p>Diagnóstico em tempo real. Implementação e tuning de telemetria, dashboards analíticos e alertas preditivos utilizando Zabbix e Grafana para antecipar falhas antes que elas afetem a operação.</p>
                 </div>
             </div>
         </div>
@@ -355,39 +441,37 @@
         <div class="container">
             <div class="section-title">
                 <p>Especialista Responsável</p>
-                <h2>Por trás da setevias</h2>
+                <h2>Liderança & Direção Técnico</h2>
             </div>
             <div class="about-content">
                 <div class="about-text">
                     <h3>José Roberto da Silva</h3>
-                    <p>Com cerca de 10 anos de sólida bagagem em ambientes corporativos altamente críticos, lidero a <strong>setevias</strong> trazendo a vivência prática acumulada em grandes players do mercado tecnológico, como IPNET, TIVIT (Projeto Petrobras) e Capgemini.</p>
-                    <p>Nossa abordagem une a agilidade do DevOps com o rigor técnico da Defesa Cibernética, assegurando que cada linha de código de infraestrutura ou automação nasça protegida e eficiente.</p>
+                    <p>Com cerca de 10 anos de experiência na linha de frente de ambientes corporativos altamente críticos, fundei a <strong>setevias</strong> para entregar soluções de infraestrutura baseadas em três pilares inegociáveis: <strong>força de execução, precisão técnica e proteção de dados</strong>.</p>
+                    <p>Minha bagagem técnica inclui a gestão e evolução de arquiteturas complexas em grandes integradores e multinacionais, como IPNET, TIVIT (Projeto Petrobras) e Capgemini, unindo a cultura DevOps moderna à governança rígida exigida pela Defesa Cibernética.</p>
                     
                     <div class="tech-tags">
-                        <span class="tech-tag">Linux Senior</span>
-                        <span class="tech-tag">AWS & Azure</span>
-                        <span class="tech-tag">GCP & OCI</span>
-                        <span class="tech-tag">Terraform</span>
-                        <span class="tech-tag">Ansible</span>
-                        <span class="tech-tag">Docker Swarm</span>
-                        <span class="tech-tag">Zabbix & Grafana</span>
-                        <span class="tech-tag">CyberSecurity</span>
+                        <span class="tech-tag ogum-tag">Linux Sênior</span>
+                        <span class="tech-tag ogum-tag">Terraform & Ansible</span>
+                        <span class="tech-tag ogum-tag">AWS / Azure / GCP / OCI</span>
+                        <span class="tech-tag omolu-tag">CyberSecurity (Blue Team)</span>
+                        <span class="tech-tag omolu-tag">Hardening de Sistemas</span>
+                        <span class="tech-tag ogum-tag">Zabbix & Grafana</span>
                     </div>
                 </div>
                 
                 <div class="experience-summary">
-                    <h3 style="color: #fff; margin-bottom: 1.5rem; font-size: 1.3rem;">Histórico de Impacto</h3>
+                    <h3 style="color: #fff; margin-bottom: 1.5rem; font-size: 1.3rem;">Histórico Corporativo</h3>
                     <div class="exp-item">
                         <h4>IPNET | Analista de Infraestrutura III</h4>
-                        <span>Sustentação, Cloud e Otimização de Processos</span>
+                        <span>Operações Cloud & Automação Avançada</span>
                     </div>
                     <div class="exp-item">
                         <h4>TIVIT (Projeto Petrobras) | Analista de Infraestrutura</h4>
-                        <span>Provisionamento de IaC e Middlewares Corporativos</span>
+                        <span>Sustentação de Middlewares & Provisionamento IaC</span>
                     </div>
                     <div class="exp-item">
                         <h4>Capgemini | Analista de Infraestrutura</h4>
-                        <span>Evolução de Sistemas e Redução de Riscos Operacionais</span>
+                        <span>Evolução de Sistemas & Mitigação de Riscos Críticos</span>
                     </div>
                 </div>
             </div>
@@ -397,12 +481,12 @@
     <section id="contato" class="contact">
         <div class="container">
             <div class="contact-box">
-                <h3>Vamos transformar sua infraestrutura?</h3>
-                <p>Fale diretamente conosco e agende uma sessão estratégica para identificar oportunidades de automação e segurança no seu negócio.</p>
+                <h3>Pronto para abrir novos caminhos?</h3>
+                <p>Entre em contato direto conosco e agende uma sessão de avaliação para mitigar riscos, reduzir custos e automatizar sua infraestrutura de TI.</p>
                 <div class="contact-links">
                     <a href="mailto:jrdsilvaz@gmail.com" class="contact-link">📩 jrdsilvaz@gmail.com</a>
                     <a href="https://linkedin.com/in/jrdsilvaz" target="_blank" class="contact-link">🔗 LinkedIn</a>
-                    <a href="tel:+5511965819745" class="contact-link">📱 +55 11 96581-9745</a>
+                    <a href="tel:+5511965819745" class="contact-link">📱 (11) 96581-9745</a>
                 </div>
             </div>
         </div>
@@ -411,7 +495,9 @@
     <footer>
         <div class="container">
             <p>&copy; 2026 setevias Consultoria em TI. Todos os direitos reservados.</p>
-            <p style="margin-top: 0.5rem; font-size: 0.75rem; color: var(--muted-text);">SETEVIAS - CNPJ: 64.839.908/001-76 | Especialista Resp.: José Roberto da Silva</p>
+            <p style="margin-top: 0.6rem; font-size: 0.75rem; color: var(--muted-text); opacity: 0.8;">
+                SETEVIAS CONSULTORIA - CNPJ: 64.839.908/001-76 | Engenheiro de Sistemas Resp.: José Roberto da Silva
+            </p>
         </div>
     </footer>
 
